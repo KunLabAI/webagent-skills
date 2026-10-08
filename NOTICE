@@ -1,0 +1,10 @@
+web-agent
+Copyright 2026 web-agent contributors
+
+This product includes software developed as part of the web-agent
+open-source project, licensed under the Apache License, Version 2.0.
+
+The check taxonomy is inspired by publicly documented web standards and
+agent-readiness guidance (RFC 9309, RFC 8288, RFC 9727, RFC 8414, RFC 9728,
+RFC 9421, OIDC Discovery, Sitemaps protocol, contentsignals.org, llmstxt.org,
+A2A Protocol, Agent Skills Discovery RFC, MCP SEP-1649, IETF WebBotAuth).

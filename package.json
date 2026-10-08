@@ -1,0 +1,74 @@
+{
+  "name": "web-agent",
+  "version": "1.0.0",
+  "description": "Portable Agent Skill + CLI to audit and harden any website for AI-agent readiness, SEO discoverability, and security (robots.txt, sitemap, llms.txt, Markdown-for-Agents, .well-known discovery, OAuth, security headers, agent cards, Web Bot Auth).",
+  "keywords": [
+    "agent-skills",
+    "skill",
+    "claude-code",
+    "cursor",
+    "codex",
+    "qoder",
+    "seo",
+    "security",
+    "agent-readiness",
+    "robots-txt",
+    "sitemap",
+    "llms-txt",
+    "well-known",
+    "oauth",
+    "a2a",
+    "mcp",
+    "web-bot-auth"
+  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "bin": {
+    "web-agent": "./bin/war.js",
+    "war": "./bin/war.js"
+  },
+  "main": "./dist/audit.js",
+  "types": "./dist/audit.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/audit.d.ts",
+      "import": "./dist/audit.js"
+    },
+    "./cli": {
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js"
+    }
+  },
+  "files": [
+    "dist",
+    "bin",
+    "SKILL.md",
+    "references",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "audit": "node bin/war.js audit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/web-agent.git"
+  },
+  "homepage": "https://github.com/your-org/web-agent#readme"
+}
