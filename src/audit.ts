@@ -1,6 +1,6 @@
 /*
- * web-agent
- * Copyright 2026 web-agent contributors
+ * webagent-skills
+ * Copyright 2026 webagent-skills contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

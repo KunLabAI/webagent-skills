@@ -1,5 +1,5 @@
 {
-  "name": "web-agent",
+  "name": "webagent-skills",
   "version": "1.0.0",
   "description": "Portable Agent Skill + CLI to audit and harden any website for AI-agent readiness, SEO discoverability, and security (robots.txt, sitemap, llms.txt, Markdown-for-Agents, .well-known discovery, OAuth, security headers, agent cards, Web Bot Auth).",
   "keywords": [
@@ -27,7 +27,7 @@
     "node": ">=18.17.0"
   },
   "bin": {
-    "web-agent": "./bin/war.js",
+    "webagent-skills": "./bin/war.js",
     "war": "./bin/war.js"
   },
   "main": "./dist/audit.js",
@@ -68,7 +68,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/web-agent.git"
+    "url": "https://github.com/your-org/webagent-skills.git"
   },
-  "homepage": "https://github.com/your-org/web-agent#readme"
+  "homepage": "https://github.com/your-org/webagent-skills#readme"
 }

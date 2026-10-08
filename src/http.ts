@@ -13,7 +13,7 @@ export interface FetchResult {
 
 export type Fetcher = (url: string, accept?: string) => Promise<FetchResult>;
 
-export const DEFAULT_UA = 'web-agent/1.0 (+https://agentskills.io)';
+export const DEFAULT_UA = 'webagent-skills/1.0 (+https://agentskills.io)';
 const MAX_BODY = 2 * 1024 * 1024; // 2 MB, mirrors the Markdown-for-Agents origin limit
 
 export interface FetcherOptions {

@@ -8,7 +8,7 @@ import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const SKILL_NAME = 'web-agent';
+export const SKILL_NAME = 'webagent-skills';
 
 // dist/install.js -> package root (holds SKILL.md + references/).
 export const PKG_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');

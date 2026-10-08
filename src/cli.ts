@@ -1,6 +1,6 @@
 /*
- * web-agent
- * Copyright 2026 web-agent contributors
+ * webagent-skills
+ * Copyright 2026 webagent-skills contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ function readVersion(): string {
   }
 }
 
-const HELP = `web-agent — audit & harden any website for AI-agent readiness, SEO, and security.
+const HELP = `webagent-skills — audit & harden any website for AI-agent readiness, SEO, and security.
 
 Usage:
   war audit <url> [options]    Audit a live site (exit code 1 if a core check fails)
@@ -76,8 +76,8 @@ install options:
   --base <dir>                 Override the base directory
 
 Examples:
-  npx web-agent audit https://example.com --json
-  npx web-agent install --scope user --agents claude,cursor
+  npx webagent-skills audit https://example.com --json
+  npx webagent-skills install --scope user --agents claude,cursor
 `;
 
 async function cmdAudit(args: string[]): Promise<void> {

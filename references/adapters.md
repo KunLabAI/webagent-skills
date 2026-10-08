@@ -202,6 +202,6 @@ go in the host's headers file:
 
 Add the validator to the pipeline so regressions fail the build:
 ```yaml
-- run: npx web-agent audit ${{ env.PREVIEW_URL }} --json --category seo,security
+- run: npx webagent-skills audit ${{ env.PREVIEW_URL }} --json --category seo,security
 ```
 Exit code is non-zero when any `core` check fails.

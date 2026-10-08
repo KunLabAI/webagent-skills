@@ -1,5 +1,5 @@
 ---
-name: web-agent
+name: webagent-skills
 description: >-
   Audit and harden any website for AI-agent readiness, SEO discoverability, and
   security. Publishes and validates robots.txt (RFC 9309) + Content-Signal,
@@ -11,7 +11,7 @@ description: >-
   a site crawlable/consumable by AI agents, fixing an agent-readiness scan, or
   hardening web SEO and security on any stack (Next.js, nginx, Cloudflare,
   Express, static).
-license: MIT
+license: Apache-2.0
 metadata:
   version: "1.0.0"
   category: "web/seo/security/agent-readiness"
@@ -43,7 +43,7 @@ gap before writing code) and never skip **Validate** (prove the artifact is live
 
 1. **Audit** — Run the offline validator against the live URL:
    ```bash
-   npx --yes web-agent audit https://example.com --json
+   npx --yes webagent-skills audit https://example.com --json
    ```
    It classifies every check as `pass` / `fail` / `warn` / `skip` / `manual` and computes
    a 0–100 score, with no external dependency (Node 18+ global `fetch`). Read
@@ -119,24 +119,24 @@ copy-paste snippets per platform for every artifact type:
 
 ## Validator Usage
 
-The validator ships as an npm CLI (`web-agent`, alias `war`). Run it with
-`npx` (no install) or globally (`npm i -g web-agent`):
+The validator ships as an npm CLI (`webagent-skills`, alias `war`). Run it with
+`npx` (no install) or globally (`npm i -g webagent-skills`):
 
 ```bash
 # Full audit, human-readable (score + grade + per-check detail)
-npx --yes web-agent audit https://example.com
+npx --yes webagent-skills audit https://example.com
 
 # Machine-readable, filter by category, custom timeout / UA
-npx --yes web-agent audit https://example.com --json --category seo,security
-npx --yes web-agent audit https://example.com --timeout 15 --user-agent "MyBot/1.0"
+npx --yes webagent-skills audit https://example.com --json --category seo,security
+npx --yes webagent-skills audit https://example.com --timeout 15 --user-agent "MyBot/1.0"
 
 # Allow a self-signed cert in staging only
-npx --yes web-agent audit https://staging.local --insecure
+npx --yes webagent-skills audit https://staging.local --insecure
 ```
 
 Exit code is `0` when no `fail` remains (warnings/skip/manual allowed), else `1` — usable
 in CI. The CLI is pure Node 18+ (global `fetch`), zero runtime dependencies. It is also a
-library: `import { auditSite } from "web-agent"` returns the same report object
+library: `import { auditSite } from "webagent-skills"` returns the same report object
 (reusable programmatically by any consumer).
 
 ## Reference Index
