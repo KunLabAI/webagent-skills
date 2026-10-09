@@ -75,24 +75,39 @@ war install --agents claude,cursor  # only specific agents
 ```bash
 war audit https://example.com                 # score + grade + per-check report
 war audit https://example.com --json          # machine-readable
+war audit https://example.com --zh            # append Chinese notes (bilingual)
 war audit https://example.com --category seo,security
 war audit https://example.com --timeout 15 --user-agent "MyBot/1.0"
 ```
 
+> **Command name**: `war` requires a global install (`npm install -g webagent-skills`) or an
+> in-repo `npm link`. Without either, call `node bin/war.js audit …` or `npx webagent-skills audit …`.
+>
+> **Shell note**: the above is bash (Linux / macOS / Git Bash). In **Windows PowerShell** the comma is
+> an array separator, so `--category seo,security` must be quoted: `--category "seo,security"`
+> (otherwise the category filter silently matches nothing and returns an empty report).
+
 Sample output:
 
 ```
-Agent-readiness audit — https://example.com
-===========================================
-Score: 89/100 (grade B)   failing checks: 0
+  Agent-readiness audit — https://example.com
+  ──────────────────────────────────────────────────────────
+  Score  89/100   [████████████████████░░]   Grade B
+  failing checks: 0
 
-[WARN]    ai           Markdown-for-Agents
-            - artifact not served (HTTP 500)
-[PASS]    seo          robots.txt (RFC 9309)
-[PASS]    security     Security response headers
-...
-Summary: 6 pass  0 fail  2 warn  3 manual  13 skip
+  ! WARN   ai           Markdown-for-Agents
+        - artifact not served (HTTP 500)
+  ✓ PASS   seo          robots.txt (RFC 9309)
+  ✓ PASS   security     Security response headers
+  ...
+  ──────────────────────────────────────────────────────────
+  Summary   6 pass  0 fail  2 warn  3 manual  13 skip
 ```
+
+Color is on by default in an interactive terminal (status badges, score bar) and auto-downgrades
+to plain text when piped / redirected / in CI. Force it with `--color` / `--no-color`, or set `NO_COLOR`.
+
+> **Cross-platform**: Linux / macOS / Windows are all supported; requires Node ≥ 18.17 (global `fetch`).
 
 Exit code is `0` when no check fails, else `1` — drop it into CI.
 
@@ -112,7 +127,7 @@ dashboard, or a scheduled monitor.
 
 Once installed, the agent auto-loads the skill when you say things like:
 
-> "Audit kunartai.com for agent readiness and fix the failing checks."
+> "Audit kunpuai.com for agent readiness and fix the failing checks."
 > "Add robots.txt Content-Signal and an api-catalog to this Next.js app."
 > "Harden the security headers and publish OAuth discovery metadata."
 

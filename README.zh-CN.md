@@ -70,25 +70,39 @@ war install --agents claude,cursor  # 仅指定 Agent
 
 ```bash
 war audit https://example.com                 # 评分 + 等级 + 逐项报告
-war audit https://example.com --json          # 机器可读
+war audit https://example.com --json          # 机器可读（CI 友好）
+war audit https://example.com --zh            # 追加中文备注（英中双语）
 war audit https://example.com --category seo,security
 war audit https://example.com --timeout 15 --user-agent "MyBot/1.0"
 ```
 
+> **命令名说明**：`war` 需先全局安装（`npm install -g webagent-skills`）或在仓库内执行 `npm link`；
+> 若都没有，请直接用 `node bin/war.js audit …` 或 `npx webagent-skills audit …`。
+>
+> **Shell 差异**：以上为 bash（Linux / macOS / Git Bash）写法。在 **Windows PowerShell** 中逗号会被
+> 当作数组分隔符，`--category seo,security` 必须加引号：`--category "seo,security"`（否则分类过滤会失效、返回空结果）。
+
 输出示例：
 
 ```
-Agent-readiness audit — https://example.com
-===========================================
-Score: 89/100 (grade B)   failing checks: 0
+  Agent-readiness audit — https://example.com
+  ──────────────────────────────────────────────────────────
+  Score  89/100   [████████████████████░░]   Grade B
+  failing checks: 0
 
-[WARN]    ai           Markdown-for-Agents
-            - artifact not served (HTTP 500)
-[PASS]    seo          robots.txt (RFC 9309)
-[PASS]    security     Security response headers
-...
-Summary: 6 pass  0 fail  2 warn  3 manual  13 skip
+  ! WARN   ai           Markdown-for-Agents
+        - artifact not served (HTTP 500)
+  ✓ PASS   seo          robots.txt (RFC 9309)
+  ✓ PASS   security     Security response headers
+  ...
+  ──────────────────────────────────────────────────────────
+  Summary   6 pass  0 fail  2 warn  3 manual  13 skip
 ```
+
+交互式终端中默认带颜色（状态徽章、分数进度条）；管道 / 重定向 / CI 中自动降级为纯文本。
+可用 `--no-color` 强制关闭、`--color` 强制开启，或设置 `NO_COLOR` 环境变量。
+
+> **跨平台**：Linux / macOS / Windows 均兼容，仅需 Node ≥ 18.17（用到全局 `fetch`）。
 
 无检查失败时退出码为 `0`，否则为 `1`——可直接接入 CI。
 
@@ -107,7 +121,7 @@ const report = await auditSite("https://example.com", { timeout: 12 });
 
 安装后，当你说下面这类话时，Agent 会自动加载该技能：
 
-> "审计 kunartai.com 的 agent 就绪度并修复失败项。"
+> "审计 kunpuai.com 的 agent 就绪度并修复失败项。"
 > "给这个 Next.js 应用加上 robots.txt 的 Content-Signal 和 api-catalog。"
 > "加固安全响应头并发布 OAuth 发现元数据。"
 

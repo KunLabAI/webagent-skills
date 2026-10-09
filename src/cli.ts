@@ -64,6 +64,8 @@ Usage:
 
 audit options:
   --json                       Machine-readable output
+  --zh                         Append Chinese notes to the human-readable report (bilingual)
+  --color / --no-color         Force ANSI colors on/off (default: auto — TTY and no NO_COLOR)
   --category <list>            Comma list: seo,ai,security,discovery,auth,agent,commerce,experimental
   --timeout <sec>              Per-request timeout (default 12)
   --user-agent <ua>            Override the User-Agent header
@@ -105,8 +107,12 @@ async function cmdAudit(args: string[]): Promise<void> {
     doh: str(flags['doh']) || undefined,
   });
 
+  const color = flags['color'] === true ? true
+    : flags['no-color'] === true ? false
+    : Boolean(process.stdout.isTTY) && !process.env.NO_COLOR;
+
   if (flags['json'] === true) console.log(JSON.stringify(report, null, 2));
-  else console.log(formatHuman(report));
+  else console.log(formatHuman(report, { zh: flags['zh'] === true, color }));
   process.exitCode = report.failed > 0 ? 1 : 0;
 }
 
