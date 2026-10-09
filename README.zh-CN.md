@@ -1,15 +1,16 @@
+<div align="center">
+
 # webagent-skills
 
 [English](./README.md) | 简体中文
 
-[![npm version](https://img.shields.io/npm/v/webagent-skills.svg)](https://www.npmjs.com/package/webagent-skills)
-[![license](https://img.shields.io/npm/l/webagent-skills.svg)](./LICENSE)
-[![node](https://img.shields.io/node/v/webagent-skills.svg)](https://nodejs.org)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-agentskills.io-blue)](https://agentskills.io)
 [![checks](https://img.shields.io/badge/检查项-21-brightgreen)](#覆盖范围21-项检查)
 [![adapters](https://img.shields.io/badge/技术栈适配器-5-informational)](#为何与技术栈无关)
 [![dependencies](https://img.shields.io/badge/运行时依赖-0-yellowgreen)](#开发)
 [![CI ready](https://img.shields.io/badge/CI-就绪-success)](#2-cicd就绪度回归门禁)
+
+</div>
 
 对**任意**网站进行 **AI-Agent 就绪度、SEO 可发现性与安全**审计与加固——同时提供可安装的
 [Agent Skill](https://agentskills.io)、零依赖 CLI 与可编程 API。一次安装即可在
@@ -289,3 +290,13 @@ Cloudflare 的 agent 就绪度指南与 isitagentready.com 启发。
 ## 许可证
 
 [Apache-2.0](./LICENSE) © webagent-skills contributors。详见 [NOTICE](./NOTICE)。
+
+<div align="center">
+
+---
+
+**[⬆ 回到顶部](#webagent-skills)**
+
+Made with ❤️ by [KunLabAI](https://github.com/KunLabAI)
+
+</div>

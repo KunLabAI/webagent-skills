@@ -1,3 +1,5 @@
+<div align="center">
+
 # webagent-skills
 
 English | [简体中文](./README.zh-CN.md)
@@ -10,6 +12,8 @@ English | [简体中文](./README.zh-CN.md)
 [![adapters](https://img.shields.io/badge/stack%20adapters-5-informational)](#why-its-stack-agnostic)
 [![dependencies](https://img.shields.io/badge/runtime%20deps-0-yellowgreen)](#development)
 [![CI ready](https://img.shields.io/badge/CI-ready-success)](#2-cicd--readiness-regression-gate)
+
+</div>
 
 Audit and harden **any** website for **AI-agent readiness, SEO discoverability, and
 security** — as an installable [Agent Skill](https://agentskills.io), a zero-dependency
@@ -298,3 +302,13 @@ assertion to `references/checklist.md`, and run `npm run build` before submittin
 ## License
 
 [Apache-2.0](./LICENSE) © webagent-skills contributors. See [NOTICE](./NOTICE).
+
+<div align="center">
+
+---
+
+**[⬆ Back to top](#webagent-skills)**
+
+Made with ❤️ by [KunLabAI](https://github.com/KunLabAI)
+
+</div>
